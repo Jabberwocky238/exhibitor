@@ -9,7 +9,7 @@ const baseURL = () => {
   if (process.env.VITE_MODE === 'development') {
     return 'http://localhost:8899/'
   } else {
-    return 'http://combinator.app238.cn/'
+    return 'https://combinator.app238.com/'
   }
 }
 
@@ -24,7 +24,11 @@ app.get('/', (c) => {
 })
 
 app.get('/init', async (c) => {
-  await rdb.exec("CREATE TABLE IF NOT EXISTS test (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT);")
+  try {
+    await rdb.exec("CREATE TABLE IF NOT EXISTS test (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT);")
+  } catch (error) {
+    return c.text('Error creating table: ' + (error as Error).message)
+  }
   return c.text('Table initialized')
 })
 

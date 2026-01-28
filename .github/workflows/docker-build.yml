@@ -49,3 +49,9 @@ jobs:
         cache-from: type=gha
         cache-to: type=gha,mode=max
 
+    - name: Register to distributor
+      run: |
+        SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
+        curl -X POST https://distributor.app238.com/api/register \
+          -H "Content-Type: application/json" \
+          -d "{\"worker_id\": \"exhibitor\",\"owner_id\": \"distributoradmin\",\"image\": \"${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:sha-${SHORT_SHA}\",\"port\": 10086}"

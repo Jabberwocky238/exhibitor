@@ -6,10 +6,16 @@ To install dependencies:
 bun install
 ```
 
-To run:
+curl -X POST https://distributor.app238.com/api/register \
+  -H "Content-Type: application/json" \
+  -d '{
+    "worker_id": "exhibitor",
+    "owner_id": "distributoradmin",
+    "image": "ghcr.io/jabberwocky238/exhibitor:latest",
+    "port": 10086
+  }'
 
-```bash
-bun run index.js
-```
 
-This project was created using `bun init` in bun v1.2.19. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+curl -X POST https://distributor.app238.com/api/register -H "Content-Type: application/json" -d "{\"worker_id\": \"exhibitor\",\"owner_id\": \"distributoradmin\",\"image\": \"ghcr.io/jabberwocky238/exhibitor:latest\",\"port\": 10086}"
+
+https://exhibitor.distributoradmin.worker.app238.com/
