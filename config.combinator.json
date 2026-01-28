@@ -1,0 +1,16 @@
+{
+  "kv": [
+    {
+      "enabled": true,
+      "id": "0",
+      "url": "memory://"
+    }
+  ],
+  "rdb": [
+    {
+      "enabled": true,
+      "id": "0",
+      "url": "sqlite://:memory:"
+    }
+  ]
+}
