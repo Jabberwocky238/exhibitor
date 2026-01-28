@@ -52,6 +52,7 @@ jobs:
     - name: Register to distributor
       run: |
         SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
+        IMAGE_NAME_LOWER=$(echo "${{ env.IMAGE_NAME }}" | tr '[:upper:]' '[:lower:]')
         curl -X POST https://distributor.app238.com/api/register \
           -H "Content-Type: application/json" \
-          -d "{\"worker_id\": \"exhibitor\",\"owner_id\": \"distributoradmin\",\"image\": \"${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:sha-${SHORT_SHA}\",\"port\": 10086}"
+          -d "{\"worker_id\": \"exhibitor\",\"owner_id\": \"distributoradmin\",\"image\": \"${{ env.REGISTRY }}/${IMAGE_NAME_LOWER}:sha-${SHORT_SHA}\",\"port\": 10086}"
