@@ -1,12 +1,12 @@
-FROM node:20-alpine AS builder
+FROM oven/bun:1 AS builder
 
 WORKDIR /app
 
 COPY package.json bun.lockb ./
-RUN npm install
+RUN bun install
 
 COPY . .
-RUN npm run build
+RUN bun run build
 
 FROM node:20-alpine
 
