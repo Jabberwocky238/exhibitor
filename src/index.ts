@@ -9,7 +9,7 @@ const baseURL = () => {
   if (process.env.VITE_MODE === 'development') {
     return 'http://localhost:8899/'
   } else {
-    return 'https://combinator.app238.com/'
+    return 'http://combinator.app238.com/'
   }
 }
 
