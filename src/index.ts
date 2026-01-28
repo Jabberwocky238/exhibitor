@@ -34,7 +34,7 @@ app.get('/init', async (c) => {
 
 app.get('/incre', async (c) => {
   const timestamp = Date.now()
-  await rdb.exec(`INSERT INTO test (name) VALUES ('Timestamp: ${timestamp}');`)
+  await rdb.exec(`INSERT INTO test (name) VALUES (?);`, [`Timestamp: ${timestamp}`])
   return c.text('Inserted timestamp' + timestamp)
 })
 
