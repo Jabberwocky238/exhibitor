@@ -17,7 +17,7 @@ const combinator = new Combinator({
   baseURL: baseURL(),
 })
 
-const rdb = combinator.rdb('0')
+const rdb = combinator.rdb('1')
 
 app.get('/', (c) => {
   return c.html('<h1>Hello Combinator RDB!</h1>')
