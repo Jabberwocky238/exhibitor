@@ -25,7 +25,7 @@ app.get('/', (c) => {
 
 app.get('/init', async (c) => {
   try {
-    await rdb.exec("CREATE TABLE IF NOT EXISTS test (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT);")
+    await rdb.exec("CREATE TABLE IF NOT EXISTS test (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT);", [])
   } catch (error) {
     return c.text(`Error creating table: ${error}`)
   }
