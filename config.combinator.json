@@ -2,14 +2,14 @@
   "kv": [
     {
       "enabled": true,
-      "id": "0",
+      "id": "edb160a67099cb21",
       "url": "memory://"
     }
   ],
   "rdb": [
     {
       "enabled": true,
-      "id": "0",
+      "id": "edb160a67099cb21",
       "url": "sqlite://:memory:"
     }
   ]
