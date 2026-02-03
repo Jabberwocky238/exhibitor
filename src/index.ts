@@ -6,10 +6,11 @@ dotenv.config()
 const app = new Hono()
 
 const baseURL = () => {
+  'https://jw6268.combinator.app238.com'
   if (process.env.VITE_MODE === 'development') {
-    return 'http://localhost:8899/'
+    return 'http://localhost:8899'
   } else {
-    return 'https://ew0322.combinator.app238.com/'
+    return 'https://jw6268.combinator.app238.com'
   }
 }
 
@@ -17,12 +18,14 @@ const combinator = new Combinator({
   baseURL: baseURL(),
 })
 
-const rdb = combinator.rdb('0f75cd3a8454e35b')
+const rdb = combinator.rdb('ce6189b9ad630d7a')
 
 app.get('/', (c) => {
   return c.html('<h1>Hello Combinator RDB!</h1>')
 })
 
+
+// curl -X POST "http://localhost:8899/rdb/exec" -d "{\"stmt\":\"CREATE TABLE IF NOT EXISTS test (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT);\",\"params\":[]}" -H "Content-Type: application/json" -H "X-Combinator-RDB-ID: 69075398b50ced5e"
 app.get('/init', async (c) => {
   try {
     await rdb.exec("CREATE TABLE IF NOT EXISTS test (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT);", [])
