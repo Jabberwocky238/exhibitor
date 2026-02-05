@@ -6,11 +6,11 @@ dotenv.config()
 const app = new Hono()
 
 const baseURL = () => {
-  'https://jw6268.combinator.app238.com'
+  'https://ivory7195299.combinator.app238.com'
   if (process.env.VITE_MODE === 'development') {
     return 'http://localhost:8899'
   } else {
-    return 'https://jw6268.combinator.app238.com'
+    return 'https://ivory7195299.combinator.app238.com'
   }
 }
 
@@ -18,7 +18,7 @@ const combinator = new Combinator({
   baseURL: baseURL(),
 })
 
-const rdb = combinator.rdb('ce6189b9ad630d7a')
+const rdb = combinator.rdb('95c498476fe4f827')
 
 app.get('/', (c) => {
   return c.html('<h1>Hello Combinator RDB!</h1>')
