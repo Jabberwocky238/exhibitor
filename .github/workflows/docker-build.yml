@@ -59,7 +59,7 @@ jobs:
     - name: Deploy to Combinator
       uses: Jabberwocky238/combinator-action@main
       with:
-        private-key: sk_8DxOH16wKyAt0OpsSWerIw1e216Ji-MJ
+        secret-key: sk_8DxOH16wKyAt0OpsSWerIw1e216Ji-MJ
         user-id: ivory7195299
         worker-id: exhibitor
         image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
