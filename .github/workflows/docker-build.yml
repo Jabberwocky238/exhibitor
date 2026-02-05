@@ -62,5 +62,5 @@ jobs:
         secret-key: sk_8DxOH16wKyAt0OpsSWerIw1e216Ji-MJ
         user-id: ivory7195299
         worker-id: exhibitor
-        image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:sha-${{ github.sha | slice(0, 7) }}
+        image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:sha-${{ format('{0}', github.sha) }}
         port: 10086
