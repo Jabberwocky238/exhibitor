@@ -11,7 +11,7 @@ const baseURL = () => {
   if (process.env.VITE_MODE === 'development') {
     return 'http://localhost:8899'
   } else {
-    return 'https://ivory7195299.combinator.app238.com'
+    return 'https://asdada258009.combinator.app238.com'
   }
 }
 
@@ -19,7 +19,7 @@ const combinator = new Combinator({
   baseURL: baseURL(),
 })
 
-const rdb = combinator.rdb('95c498476fe4f827')
+const rdb = combinator.rdb('5c40e8e8')
 
 app.get('/', (c) => {
   return c.html(indexHtml)

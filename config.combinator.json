@@ -1,19 +1,9 @@
 {
-  "metadata": {
-    "uid": "quest2328273"
-  },
   "kv": [
-    {
-      "enabled": true,
-      "id": "ce6189b9ad630d7a",
-      "url": "memory://"
-    }
+    "kv114514"
   ],
   "rdb": [
-    {
-      "enabled": true,
-      "id": "95c498476fe4f827",
-      "url": "sqlite://:memory:"
-    }
+    "rdb2077",
+    "5c40e8e8"
   ]
 }

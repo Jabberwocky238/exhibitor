@@ -55,8 +55,8 @@ jobs:
     - name: Deploy to Combinator
       uses: Jabberwocky238/combinator-action@main
       with:
-        secret-key: sk_8DxOH16wKyAt0OpsSWerIw1e216Ji-MJ
-        user-id: ivory7195299
+        secret-key: sk_KjPaES_LBQCBEPYv5K2zAAo0ARtuZjVf
+        user-id: asdada258009
         worker-id: exhibitor
         image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:sha-${{ env.SHORT_SHA }}
         port: 10086
