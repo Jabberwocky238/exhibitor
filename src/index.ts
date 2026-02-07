@@ -26,16 +26,29 @@ app.get('/', (c) => {
 })
 
 app.get('/.env', (c) => {
-  return c.json({ ...process.env, "baseURL": baseURL() } )
+  return c.json({ ...process.env, "baseURL": baseURL() })
 })
 
 app.get('/init', async (c) => {
-  await rdb.batch([`
+  // 获取查询参数
+  const mode = c.req.query('mode') || 'exec'
+  if (mode === 'exec') {
+    await rdb.exec(`
+      CREATE TABLE IF NOT EXISTS test (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL
+      );
+    `, [])
+  } else if (mode === 'batch') {
+    await rdb.batch([`
     CREATE TABLE IF NOT EXISTS test (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL
     );
   `], [])
+  } else {
+    return c.text('Invalid mode. Use "exec" or "batch".')
+  }
   return c.text('Database initialized')
 })
 
