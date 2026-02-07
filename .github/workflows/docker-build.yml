@@ -55,8 +55,8 @@ jobs:
     - name: Deploy to Combinator
       uses: Jabberwocky238/combinator-action@main
       with:
-        secret-key: sk_KjPaES_LBQCBEPYv5K2zAAo0ARtuZjVf
-        user-id: asdada258009
-        worker-id: ed565f98
+        secret-key: sk_PTVqfBItjjk8HAp-pABIY2zRTFoyu-kC
+        user-id: jabber215052
+        worker-id: 04f72187
         image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:sha-${{ env.SHORT_SHA }}
         port: 10086

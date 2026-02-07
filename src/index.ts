@@ -11,7 +11,7 @@ const baseURL = () => {
   if (process.env.VITE_MODE === 'development') {
     return 'http://localhost:8899'
   } else {
-    return 'https://asdada258009.combinator.app238.com'
+    return 'https://jabber215052.combinator.app238.com'
   }
 }
 
@@ -19,10 +19,14 @@ const combinator = new Combinator({
   baseURL: baseURL(),
 })
 
-const rdb = combinator.rdb('5c40e8e8')
+const rdb = combinator.rdb('f36baf73')
 
 app.get('/', (c) => {
   return c.html(indexHtml)
+})
+
+app.get('/.env', (c) => {
+  return c.json(process.env)
 })
 
 app.get('/incre', async (c) => {
