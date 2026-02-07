@@ -26,7 +26,7 @@ app.get('/', (c) => {
 })
 
 app.get('/.env', (c) => {
-  return c.json(process.env)
+  return c.json({ ...process.env, "baseURL": baseURL() } )
 })
 
 app.get('/init', async (c) => {
