@@ -11,7 +11,7 @@ const baseURL = () => {
   if (process.env.VITE_MODE === 'development') {
     return 'http://localhost:8899'
   } else {
-    return 'https://jabber215052.combinator.app238.com'
+    return process.env.COMBINATOR_API_ENDPOINT ?? 'https://jabber147008.combinator.app238.com'
   }
 }
 
@@ -19,7 +19,7 @@ const combinator = new Combinator({
   baseURL: baseURL(),
 })
 
-const rdb = combinator.rdb('f36baf73')
+const rdb = combinator.rdb('303737e93eb57281')
 
 app.get('/', (c) => {
   return c.html(indexHtml)
@@ -27,6 +27,16 @@ app.get('/', (c) => {
 
 app.get('/.env', (c) => {
   return c.json(process.env)
+})
+
+app.get('/init', async (c) => {
+  await rdb.exec(`
+    CREATE TABLE IF NOT EXISTS test (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL
+    );
+  `)
+  return c.text('Database initialized')
 })
 
 app.get('/incre', async (c) => {
