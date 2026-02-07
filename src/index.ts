@@ -30,12 +30,12 @@ app.get('/.env', (c) => {
 })
 
 app.get('/init', async (c) => {
-  await rdb.exec(`
+  await rdb.batch([`
     CREATE TABLE IF NOT EXISTS test (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL
     );
-  `)
+  `], [])
   return c.text('Database initialized')
 })
 
@@ -48,7 +48,8 @@ app.get('/incre', async (c) => {
 app.get('/data', async (c) => {
   const limit = c.req.query('limit') || '10'
   const numberLimit = parseInt(limit, 10)
-  const result = await rdb.query('SELECT * FROM test LIMIT ?;', [numberLimit])
+  // 从大到小排序，获取最新的记录
+  const result = await rdb.query('SELECT * FROM test ORDER BY id DESC LIMIT ?;', [numberLimit])
   return c.json(result)
 })
 
