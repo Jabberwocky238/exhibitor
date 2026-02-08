@@ -44,6 +44,7 @@
 
     <div class="panel">
         <button id="addBtn">添加记录</button>
+        <button id="getBtn">获取记录</button>
     </div>
 
     <div class="panel">
@@ -93,6 +94,10 @@
 
         document.getElementById('addBtn').addEventListener('click', async () => {
             await fetch(`${API_BASE}/incre`);
+            updateDisplay();
+        });
+
+        document.getElementById('getBtn').addEventListener('click', async () => {
             updateDisplay();
         });
 
