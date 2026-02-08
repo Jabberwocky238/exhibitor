@@ -48,6 +48,11 @@
     </div>
 
     <div class="panel">
+        <h3>请求头信息</h3>
+        <div id="headersInfo" style="font-family: monospace; white-space: pre-wrap;">加载中...</div>
+    </div>
+
+    <div class="panel">
         <h3>最近记录时间戳</h3>
         <div id="latestTime">暂无记录</div>
     </div>
@@ -60,6 +65,17 @@
     <script>
         const API_BASE = '';
 
+        async function fetchHeaders() {
+            try {
+                const res = await fetch(`${API_BASE}/headers`);
+                const data = await res.json();
+                return data.headers;
+            } catch (e) {
+                console.error('获取请求头失败:', e);
+                return null;
+            }
+        }
+
         async function fetchRecords() {
             const res = await fetch(`${API_BASE}/data`);
             const data = await res.json();
@@ -68,8 +84,21 @@
         }
 
         async function updateDisplay() {
+            const headersInfoEl = document.getElementById('headersInfo');
             const latestTimeEl = document.getElementById('latestTime');
             const recordListEl = document.getElementById('recordList');
+
+            // 获取并显示请求头
+            const headers = await fetchHeaders();
+            if (headers) {
+                let headerText = '';
+                for (const [key, value] of Object.entries(headers)) {
+                    headerText += `${key}: ${value}\n`;
+                }
+                headersInfoEl.textContent = headerText || '无请求头信息';
+            } else {
+                headersInfoEl.textContent = '获取失败';
+            }
 
             try {
                 const records = await fetchRecords();

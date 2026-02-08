@@ -66,4 +66,13 @@ app.get('/data', async (c) => {
   return c.json(result)
 })
 
+app.get('/headers', async (c) => {
+  // 返回所有请求头
+  const headers: Record<string, string> = {}
+  c.req.raw.headers.forEach((value, key) => {
+    headers[key] = value
+  })
+  return c.json({ headers })
+})
+
 export default app
