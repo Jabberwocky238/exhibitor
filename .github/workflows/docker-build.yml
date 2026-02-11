@@ -57,6 +57,6 @@ jobs:
       with:
         secret-key: sk_qNVLYheY1RLmroBz2iQRyWYyNaEoj8mf
         user-id: jabber979114
-        worker-id: 975c526e
+        worker-id: 6b51c5dd
         image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:sha-${{ env.SHORT_SHA }}
         port: 10086
