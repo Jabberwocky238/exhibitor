@@ -11,7 +11,7 @@ const baseURL = () => {
   if (process.env.VITE_MODE === 'development') {
     return 'http://localhost:8899'
   } else {
-    return process.env.COMBINATOR_API_ENDPOINT ?? 'https://jabber147008.combinator.app238.com'
+    return process.env.COMBINATOR_API_ENDPOINT ?? 'https://combinator.app238.com'
   }
 }
 
@@ -19,7 +19,7 @@ const combinator = new Combinator({
   baseURL: baseURL(),
 })
 
-const rdb = combinator.rdb('303737e93eb57281')
+const rdb = combinator.rdb('4f710875efe061a7')
 
 app.get('/', (c) => {
   return c.html(indexHtml)
