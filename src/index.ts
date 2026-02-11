@@ -53,17 +53,27 @@ app.get('/init', async (c) => {
 })
 
 app.get('/incre', async (c) => {
-  const timestamp = Date.now()
-  await rdb.exec(`INSERT INTO test (name) VALUES (?);`, [`Timestamp: ${timestamp}`])
-  return c.text('Inserted timestamp' + timestamp)
+  try {
+    const timestamp = Date.now()
+    await rdb.exec(`INSERT INTO test (name) VALUES (?);`, [`Timestamp: ${timestamp}`])
+    return c.text('Inserted timestamp' + timestamp)
+  } catch (error: any) {
+    console.error('Error in /incre:', error)
+    return c.json({ error: error.message || String(error) }, 500)
+  }
 })
 
 app.get('/data', async (c) => {
-  const limit = c.req.query('limit') || '10'
-  const numberLimit = parseInt(limit, 10)
-  // 从大到小排序，获取最新的记录
-  const result = await rdb.query('SELECT * FROM test ORDER BY id DESC LIMIT ?;', [numberLimit])
-  return c.json(result)
+  try {
+    const limit = c.req.query('limit') || '10'
+    const numberLimit = parseInt(limit, 10)
+    // 从大到小排序，获取最新的记录
+    const result = await rdb.query('SELECT * FROM test ORDER BY id DESC LIMIT ?;', [numberLimit])
+    return c.json(result)
+  } catch (error: any) {
+    console.error('Error in /data:', error)
+    return c.json({ error: error.message || String(error) }, 500)
+  }
 })
 
 app.get('/headers', async (c) => {
