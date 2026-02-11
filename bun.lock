@@ -5,7 +5,7 @@
       "name": "exhibitor",
       "dependencies": {
         "@hono/node-server": "^1.19.9",
-        "combinator-sdk": "^0.0.3",
+        "combinator-sdk": "^0.0.4",
         "dotenv": "^17.2.3",
         "hono": "^4.11.7",
       },
@@ -139,7 +139,7 @@
 
     "bun-types": ["bun-types@1.3.7", "", { "dependencies": { "@types/node": "*" } }, "sha512-qyschsA03Qz+gou+apt6HNl6HnI+sJJLL4wLDke4iugsE6584CMupOtTY1n+2YC9nGVrEKUlTs99jjRLKgWnjQ=="],
 
-    "combinator-sdk": ["combinator-sdk@0.0.3", "", { "dependencies": { "@types/node": "^25.2.2", "dotenv": "^17.2.4" }, "peerDependencies": { "typescript": ">=5.0.0" } }, "sha512-Figh9iVeAh0O2A3Ms7vktPZpG8N8SwwTlWPtqqAlRslSE1ZaTOSXXoTWhTR4GYYRkQzPWleKAKoDx0Y4knt0Iw=="],
+    "combinator-sdk": ["combinator-sdk@0.0.4", "", { "dependencies": { "@types/node": "^25.2.2", "dotenv": "^17.2.4" }, "peerDependencies": { "typescript": ">=5.0.0" } }, "sha512-jJJUB88nncnlN5wzpcwDKZ1nQhFZusslvHE+7G8cOSM/Us57iofTkppOEEXibFq7M1PZ6PzS3CXMCc3AEnPjaQ=="],
 
     "dotenv": ["dotenv@17.2.3", "", {}, "sha512-JVUnt+DUIzu87TABbhPmNfVdBDt18BLOWjMUFJMSi/Qqg7NTYtabbvSNJGOJ7afbRuv9D/lngizHtP7QyLQ+9w=="],
 

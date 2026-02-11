@@ -17,9 +17,7 @@ const baseURL = () => {
 
 //
 
-const combinator = new Combinator({
-  baseURL: baseURL()
-})
+const combinator = new Combinator({})
 
 const rdb = combinator.rdb('4f710875efe061a7')
 
